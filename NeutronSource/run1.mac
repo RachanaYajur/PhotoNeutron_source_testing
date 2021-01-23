@@ -1,11 +1,11 @@
 #
-# Macro file for "AmBe.cc"
+# Macro file
 #
-/control/verbose 2
-/run/verbose 1
+/control/verbose 0
+/run/verbose 0
 #
 ##/testhadr/det/setAbsorMat BeO
-##/testhadr/det/setContMat Stainless-Steel
+##/testhadr/det/setContMat Pb
 ##/testhadr/det/setAbsorRadius 15 mm
 ##/testhadr/det/setAbsorLength 60 mm
 ##/testhadr/det/setContThick  2.4 mm
@@ -14,14 +14,20 @@
 #
 /process/list
 #
-/gun/particle ion
-/gun/ion 95 241
-/gun/energy 0. eV
+#/gun/particle ion
+#/gun/ion 95 241
+#/gun/ion 51 124
+#/gun/energy 0. eV
+
+/gun/particle gamma
+/gun/energy 10 MeV
+
 #
-/analysis/setFileName NeutronSource
-/analysis/h1/set 4 100  0. 10.  MeV #gammas
-/analysis/h1/set 6  60  0. 12.  MeV #neutrons
+#/analysis/setFileName Sb124_BERT_BeO_1E9
+/analysis/setFileName gamma_EM_10MeV_5mm_1e9
+/analysis/h1/set 4 1000  0. 10.  MeV #gammas
+/analysis/h1/set 6 10000  0. 10.  MeV #neutrons
 #
-/run/printProgress 10000
+/run/printProgress 0
 #
-/run/beamOn 100000
+/run/beamOn 1000000000
